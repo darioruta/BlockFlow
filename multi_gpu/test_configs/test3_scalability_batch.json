@@ -1,0 +1,490 @@
+[
+    {
+        "test_name": "batch1",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch2",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 2,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch4",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 4,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch8",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 8,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch16",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 16,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch32",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 32,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch64",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 64,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch128",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 128,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch256",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 256,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch1_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch2_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 2,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch4_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 4,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch8_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 8,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch16_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 16,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch32_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 32,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch64_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 64,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch128_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 128,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "batch256_zero_copy",
+        "family_test": "test3_scalability_batch",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 256,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    }
+
+
+]

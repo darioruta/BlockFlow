@@ -1,0 +1,409 @@
+[
+    {
+        "test_name": "lambda2",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 2,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda4",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 4,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda8",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 8,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda16",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 16,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda32",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 32,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda64",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 64,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda128",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 128,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda150",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 150,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda170",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 170,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda190",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 190,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda210",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 210,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda230",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 230,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda250",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 250,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda270",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 270,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "lambda300",
+        "family_test": "test4_maximum_th",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": false,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 300,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    }
+
+
+]
