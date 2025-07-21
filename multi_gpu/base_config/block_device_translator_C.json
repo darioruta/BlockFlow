@@ -1,0 +1,10 @@
+{
+    "client1" : "cuda:0",
+    "dispatcher": "cuda:0",
+    "block1" : "cuda:0", 
+    "block2" :  "cuda:0", 
+    "block3" : "cuda:2", 
+    "block4" : "cuda:2", 
+    "resnet50" : "cuda:4"
+
+}

@@ -1,0 +1,84 @@
+[
+    {
+        "test_name": "pipeline",
+        "family_test": "test1_pipeline_analysis",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "pipeline_tensorMQ",
+        "family_test": "test1_pipeline_analysis",
+        "with_tcp": true, 
+        "zero_copy": true,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    },
+    {
+        "test_name": "full_resnet",
+        "family_test": "test1_pipeline_analysis",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 60,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["resnet50"]
+            }
+            ] 
+    }
+
+]

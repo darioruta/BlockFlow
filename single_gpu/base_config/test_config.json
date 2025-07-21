@@ -1,0 +1,29 @@
+[
+    {
+        "test_name": "sync_pipeline_with_interarrivals",
+        "family_test": "prove",
+        "with_tcp": true, 
+        "zero_copy": false,
+        "device" : "cuda",
+        "subprocess": false, 
+        "with_dispatcher": false,
+        "with_collector": false,
+        "dispatcher_name": "dispatcher",
+        "collector_name" : "collector",
+        "router_name": "router",
+        "synchronous": true,
+    
+        "clients": [
+            {
+                "name": "client1",
+                "port": 5590,
+                "n_inf": 5000, 
+                "batch_size" : 1,
+                "duration": 20,
+                "with_duration": true,
+                "sending_rate" : 120,
+                "path" : ["block1", "block2","block3","block4"]
+            }
+            ] 
+    }
+]
