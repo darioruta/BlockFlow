@@ -2,7 +2,7 @@ import torch
 import gc
 import time
 import os
-from client_duration import  ClientDuration
+from client_duration import ClientDuration
 from block_dynamic import Block_dynamic_connections
 from dispatcher import Dispatcher
 from result_collector import Collector
@@ -31,18 +31,24 @@ class TestPUSH():
         self.clients = []
         self.numa_node = numa
         
-
+        # Get the directory where the script is running
         script_dir = os.path.dirname(os.path.abspath(__file__)) 
-        script_dir = script_dir + f"/results_numa{self.numa_node}/" + self.family_test
-        self.save_dir = script_dir +"/"+ self.test_name
+        
+        # Construct paths using os.path.join
+        self.save_dir = os.path.join(
+            script_dir, 
+            f"results_numa{self.numa_node}", 
+            self.family_test, 
+            self.test_name
+        )
     
-        self.raw_data_dir = self.save_dir + "/raw/" #...results/raw/
-        self.aggregated_data_dir = self.save_dir + "/aggregated/" #...results/test_name/aggregated/
-        self.final_dir = self.save_dir + "/final/" #.../test_name/final/
+        self.raw_data_dir = os.path.join(self.save_dir, "raw") 
+        self.aggregated_data_dir = os.path.join(self.save_dir, "aggregated")
+        self.final_dir = os.path.join(self.save_dir, "final")
 
-        os.makedirs(os.path.dirname(self.raw_data_dir), exist_ok=True)
-        os.makedirs(os.path.dirname(self.aggregated_data_dir), exist_ok=True)
-        os.makedirs(os.path.dirname(self.final_dir), exist_ok=True)
+        os.makedirs(self.raw_data_dir, exist_ok=True)
+        os.makedirs(self.aggregated_data_dir, exist_ok=True)
+        os.makedirs(self.final_dir, exist_ok=True)
 
         if self.with_tcp:
             self.protocol = "tcp"
@@ -84,8 +90,6 @@ class TestPUSH():
             sending_rate = c_config["sending_rate"]
             self.deploy_blocks(f_pass)
             self.prepare_client(c_name,c_port, f_pass, batch, self.sync, n_inf, with_duration, duration, sending_rate)
-
-
 
         print("Waiting for the actual startup of the blocks")
         time.sleep(5)
@@ -238,14 +242,15 @@ class TestPUSH():
         self.aggregated_th_buffer_stats = []
         for b in self.blocks_active:
             try:
-                with open(self.raw_data_dir + f"/{b['name']}.json", "r") as f:
+                # Use os.path.join for robust path handling
+                with open(os.path.join(self.raw_data_dir, f"{b['name']}.json"), "r") as f:
                     self.aggregated_stats.append(json.load(f))
                     f.close()
             except:
                 print(f"Could not read stats for {b['name']}")
             
             try:
-                with open(self.raw_data_dir + f"/TH_{b['name']}.json", "r") as f:
+                with open(os.path.join(self.raw_data_dir, f"TH_{b['name']}.json"), "r") as f:
                     self.aggregated_th_buffer_stats.append(json.load(f))
                     f.close()
             except:
@@ -254,18 +259,18 @@ class TestPUSH():
 
         for c in self.clients:
             try:
-                with open(self.raw_data_dir + f"/{c['name']}.json", "r") as f:
+                with open(os.path.join(self.raw_data_dir, f"{c['name']}.json"), "r") as f:
                     self.aggregated_stats.append(json.load(f))
                     f.close()
             except:
                 print(f"Could not read stats for {c['name']}")
 
-        file_path = self.aggregated_data_dir + f"{self.test_name}.json"
+        file_path = os.path.join(self.aggregated_data_dir, f"{self.test_name}.json")
         with open(file_path, "w") as f:
             json.dump(self.aggregated_stats, f, indent=3)
         f.close()
 
-        file_path = self.aggregated_data_dir + f"TH_{self.test_name}.json"
+        file_path = os.path.join(self.aggregated_data_dir, f"TH_{self.test_name}.json")
         with open(file_path, "w") as f:
             json.dump(self.aggregated_th_buffer_stats, f, indent=3)
         f.close()
@@ -281,21 +286,25 @@ class TestPUSH():
         return pickle.loads(bytes_data)
     
     def compute_statistics(self):
-        file_path = self.aggregated_data_dir + f"{self.test_name}.json"
-        output_path = self.final_dir + f"{self.test_name}_stats.json"
+        file_path = os.path.join(self.aggregated_data_dir, f"{self.test_name}.json")
+        output_path = os.path.join(self.final_dir, f"{self.test_name}_stats.json")
         #computer = StatsComputer(file_path, output_path, self.configs)
         computer = StatsComputer(load=False, input_path=None, input_data=self.aggregated_stats, output_path=output_path, test_configs=self.configs)
         computer.compute_statistics()
         print(f"Final stats available at {file_path}")
         return
-    
+
+# Helper to get current script directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 def doTest1(translator, numa):
-    with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test1_time_pipeline.json", "r") as f:
+    config_path = os.path.join(BASE_DIR, "test_configs", "test1_time_pipeline.json")
+    with open(config_path, "r") as f:
         configs = json.load(f)
     f.close()
 
     for t_conf in configs:
-        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
+        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
         t = TestPUSH(t_conf, translator, numa)
         t.run_test()
         time.sleep(5)
@@ -304,23 +313,24 @@ def doTest1(translator, numa):
 
 def doTest3(translator, numa):
     '''TEST 3: evaluate the system performance under varible batch sizes in order to compare tensorMQ and zeroMQ '''
-    #with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test3_scalability_batch.json", "r") as f:
+    # config_path = os.path.join(BASE_DIR, "test_configs", "test3_scalability_batch.json")
+    # with open(config_path, "r") as f:
     #    configs = json.load(f)
-    #f.close()
+    # f.close()
 
-    #for t_conf in configs:
-    #    print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
+    # for t_conf in configs:
+    #    print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
     #    t = TestPUSH(t_conf, translator, numa)
     #    t.run_test()
     #    time.sleep(5)
 
-
-    with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test3_scalability_batch_zero_copy.json", "r") as f:
+    config_path = os.path.join(BASE_DIR, "test_configs", "test3_scalability_batch_zero_copy.json")
+    with open(config_path, "r") as f:
         configs = json.load(f)
     f.close()
 
     for t_conf in configs:
-        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
+        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
         t = TestPUSH(t_conf, translator, numa)
         t.run_test()
         time.sleep(5)
@@ -330,50 +340,38 @@ def doTest3(translator, numa):
 def doTest4(translator, zero_copy, numa):
     '''Test 4: maximum throughput test. stats collected by varying the arrival rate to the pipeline'''
     if zero_copy:
-        with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test4_maximum_th_zero_copy.json", "r") as f:
-            configs = json.load(f)
-        f.close()
-
-        for t_conf in configs:
-            print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
-            t = TestPUSH(t_conf, translator, numa)
-            t.run_test()
-            time.sleep(5)
+        config_path = os.path.join(BASE_DIR, "test_configs", "test4_maximum_th_zero_copy.json")
     else:
-        with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test4_maximum_th.json", "r") as f:
-            configs = json.load(f)
-        f.close()
+        config_path = os.path.join(BASE_DIR, "test_configs", "test4_maximum_th.json")
+        
+    with open(config_path, "r") as f:
+        configs = json.load(f)
+    f.close()
 
-        for t_conf in configs:
-            print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
-            t = TestPUSH(t_conf, translator, numa)
-            t.run_test()
-            time.sleep(5)
+    for t_conf in configs:
+        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
+        t = TestPUSH(t_conf, translator, numa)
+        t.run_test()
+        time.sleep(5)
 
     return
 
 def doTest5(translator, zero_copy, numa):
     '''Test5: multiclient system scalability with clients adopting syncronous behavior'''
     if zero_copy:
-        with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test5_multiclient_scalability_zero_copy.json", "r") as f:
-            configs = json.load(f)
-        f.close()
-
-        for t_conf in configs:
-            print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
-            t = TestPUSH(t_conf, translator, numa)
-            t.run_test()
-            time.sleep(5)
+        config_path = os.path.join(BASE_DIR, "test_configs", "test5_multiclient_scalability_zero_copy.json")
     else:
-        with open("/home/druta/workspace/test/test_final_pipeline/test_configs/test5_multiclient_scalability.json", "r") as f:
-            configs = json.load(f)
-        f.close()
+        config_path = os.path.join(BASE_DIR, "test_configs", "test5_multiclient_scalability.json")
+        
+    with open(config_path, "r") as f:
+        configs = json.load(f)
+    f.close()
 
-        for t_conf in configs:
-            print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
-            t = TestPUSH(t_conf, translator, numa)
-            t.run_test()
-            time.sleep(5)
+    for t_conf in configs:
+        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
+        t = TestPUSH(t_conf, translator, numa)
+        t.run_test()
+        time.sleep(5)
 
     return
 
@@ -383,7 +381,7 @@ def main(path):
     f.close()
 
     for t_conf in configs:
-        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf["test_name"]}")
+        print(f"\n\n #### STARTING NEW TEST #### \n\n {t_conf['test_name']}")
         t = TestPUSH(t_conf, translator)
         t.run_test()
         time.sleep(5)
@@ -396,33 +394,35 @@ if __name__=="__main__":
     import sys
     mp.set_start_method("spawn")
 
-    with open("/home/druta/workspace/test/test_final_pipeline/base_config/block_port_translator.json", "r") as f:
+    # Relative path for the translator config
+    translator_path = os.path.join(BASE_DIR, "base_config", "block_port_translator.json")
+    with open(translator_path, "r") as f:
         translator = json.load(f)
     f.close()
 
-    #main(path="/home/druta/workspace/test/test_final_pipeline/base_config/test_config.json")
+    # main(path=os.path.join(BASE_DIR, "base_config", "test_config.json"))
 
-    numa = sys.argv[1]
+    if len(sys.argv) > 1:
+        numa = sys.argv[1]
+    else:
+        numa = "0" # Default fallback if argument not provided
+        
     print(f"Running numa node: {numa}")
 
     ###### TEST 1 ######
     doTest1(translator, numa)
 
     ###### TEST 3 ######
-    doTest3(translator, numa)
+    #doTest3(translator, numa)
     
     ###### TEST 4 ######
-    doTest4(translator, zero_copy=False, numa=numa)
+    #doTest4(translator, zero_copy=False, numa=numa)
     
     ###### TEST 4 - ZERO COPY  ######
-    doTest4(translator, zero_copy=True, numa=numa)
+    #doTest4(translator, zero_copy=True, numa=numa)
     
     ###### TEST 5 ######
-    doTest5(translator, zero_copy=False, numa=numa)
+    #doTest5(translator, zero_copy=False, numa=numa)
 
     ###### TEST 5 ZERO COPY ######
-    doTest5(translator, zero_copy=True, numa=numa)
-
-    
-
-    
+    #doTest5(translator, zero_copy=True, numa=numa)
