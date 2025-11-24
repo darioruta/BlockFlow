@@ -18,6 +18,7 @@ _BlockFlow's high-level architecture._
   - [Inference Latency](#inference-latency)
   - [System Scalability](#system-scalability)
   - [VRAM Savings](#vram-savings)
+  - [Reproducibility](#reproducibility)
 - [Future Work](#future-work)
 - [Citation](#citation)
 - [Acknowledgments](#acknowledgments)
@@ -108,6 +109,15 @@ By sharing blocks between different tasks, the modular approach enabled by Block
 | 60% of tasks share 75% of layers            |         15.37%         |
 | 90% of tasks share 75% of layers            |         21.53%         |
 | 95% of tasks share 75% of layers            |         23.48%         |
+
+### Reproducibility
+
+To facilitate the reproducibility of our experiments, we provide the scripts used to generate the results reported above. Please ensure your environment is configured with the necessary dependencies and CUDA drivers before running these tests.
+
+**1. Latency Benchmarks**
+Run the following script to measure end-to-end latency and communication overhead:
+# Example usage
+python experiments/run_latency_test.py --model resnet50 --blocks 4
 
 ## Future Work
 
