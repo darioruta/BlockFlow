@@ -1,0 +1,37 @@
+{
+    "controller": 5600,
+    "dispatcher": 5580,
+    "router": 5581,
+    "collector": 5582,
+    
+    "block1" : 5555,
+    "block1a" : 5556,
+    "block1b" : 5557,
+    "block2" :  5558,
+    "block2a" : 5559,
+    "block2b" : 5560,
+    "block3" : 5561,
+    "block3a" : 5562,
+    "block3b" : 5563,
+    "block4" : 5564,
+    "block4a" : 5565,
+    "block4b" : 5566,
+    "resnet50" : 5567,
+    "resnet50a" : 5568,
+
+    "block4_class1": 5569,
+    "block4_class2": 5570,
+    "block4_class3": 5571,
+
+    "class_head1": 5572,
+    "class_head2": 5573,
+    "class_head3": 5574,
+    "class_head4": 5575,
+
+    "detection_head1": 5576,
+    "detection_head2": 5577,
+    "detection_head3": 5578,
+    "detection_head4": 5579
+
+
+}
