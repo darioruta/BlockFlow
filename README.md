@@ -116,8 +116,8 @@ To facilitate the reproducibility of our experiments, we provide the scripts use
 
 **1. Latency Benchmarks**
 Run the following script to measure end-to-end latency and communication overhead:
-# Example usage
-python experiments/run_latency_test.py --model resnet50 --blocks 4
+
+`python experiments/run_latency_test.py --model resnet50 --blocks 4`
 
 ## Future Work
 
